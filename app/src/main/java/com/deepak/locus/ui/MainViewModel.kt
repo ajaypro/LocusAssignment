@@ -1,5 +1,6 @@
 package com.deepak.locus.ui
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,6 +28,7 @@ class MainViewModel(private val dataRepostiory: DataRepostiory): ViewModel() {
     private fun getData(){
         viewModelScope.launch {
            _data.value =  dataRepostiory.getData()
+            Log.i("MainVM", _data.value.toString())
         }
     }
 

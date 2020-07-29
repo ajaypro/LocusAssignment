@@ -24,8 +24,9 @@
     android:padding="10dp"
     android:animateLayoutChanges="true"
     android:gravity="center_vertical">
-    <CheckBox
-      android:id="@+id/cb_selection"
+
+    <RadioGroup
+      android:id="@+id/radioGroup"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
@@ -36,14 +37,14 @@
       android:clickable="false"
       android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
     <TextView
-      android:id="@+id/tv_text"
+      android:id="@+id/radio_text"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="10dp"
       android:layout_marginLeft="10dp"
       android:layout_centerVertical="true"
-      android:layout_toEndOf="@+id/cb_selection"
-      android:layout_toRightOf="@+id/cb_selection"
+      android:layout_toEndOf="@+id/radioGroup"
+      android:layout_toRightOf="@+id/radioGroup"
       android:textAppearance="@style/TextAppearance.AppCompat.Medium"
       android:textColor="@android:color/black"
       tools:text="Item 1"/>
