@@ -1,0 +1,10 @@
+<resources>
+  <string name="app_name">Locus</string>
+  <string name="item_image">Item Image</string>
+  <string name="clear_image_button">clear image button</string>
+  <string name="type_comment">Type comment</string>
+  <string name="camera_unavailable">Camera not available.</string>
+  <string name="image_viewer">image viewer</string>
+  <string name="submit">Submit</string>
+  <string name="log_printed">Current values have been printed in Logcat</string>
+</resources>
