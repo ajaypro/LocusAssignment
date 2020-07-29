@@ -67,7 +67,6 @@ dependencies {
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$library.coroutine"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$library.coroutine"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha06"
 
 
     testImplementation 'junit:junit:4.12'

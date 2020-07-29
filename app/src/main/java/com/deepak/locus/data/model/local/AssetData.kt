@@ -3,7 +3,6 @@ package com.deepak.locus.data.model.local
 import android.content.Context
 import com.deepak.locus.data.model.DataItem
 import com.google.gson.Gson
-import kotlinx.coroutines.Deferred
 import java.io.BufferedReader
 import java.io.IOException
 

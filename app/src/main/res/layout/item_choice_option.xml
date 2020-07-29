@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!--  <data>-->
+<!--    <import type="android.view.View"/>-->
+<!--    <variable-->
+<!--      name="item"-->
+<!--      type="String"/>-->
+<!--    <variable-->
+<!--      name="position"-->
+<!--      type="int"/>-->
+<!--    <variable-->
+<!--      name="lastPosition"-->
+<!--      type="int"/>-->
+<!--&lt;!&ndash;    <variable&ndash;&gt;-->
+<!--&lt;!&ndash;      name="myAdapter"&ndash;&gt;-->
+<!--&lt;!&ndash;      type="com.djay.locusassignment.ui.main.adapter.OptionsAdapter"/>&ndash;&gt;-->
+
+<!--  </data>-->
   <RelativeLayout
       xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools"
@@ -8,9 +24,8 @@
     android:padding="10dp"
     android:animateLayoutChanges="true"
     android:gravity="center_vertical">
-
-    <RadioGroup
-      android:id="@+id/radioGroup"
+    <CheckBox
+      android:id="@+id/cb_selection"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
@@ -21,14 +36,14 @@
       android:clickable="false"
       android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
     <TextView
-      android:id="@+id/radio_text"
+      android:id="@+id/tv_text"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="10dp"
       android:layout_marginLeft="10dp"
       android:layout_centerVertical="true"
-      android:layout_toEndOf="@+id/radioGroup"
-      android:layout_toRightOf="@+id/radioGroup"
+      android:layout_toEndOf="@+id/cb_selection"
+      android:layout_toRightOf="@+id/cb_selection"
       android:textAppearance="@style/TextAppearance.AppCompat.Medium"
       android:textColor="@android:color/black"
       tools:text="Item 1"/>

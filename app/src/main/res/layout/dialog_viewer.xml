@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
+
 <!--  <data>-->
 <!--    <import type="android.view.View"/>-->
 <!--    <variable-->
@@ -8,6 +7,7 @@
 <!--      type="com.deepak.locus.data.model.DataItem"/>-->
 <!--  </data>-->
   <RelativeLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
@@ -22,4 +22,3 @@
       android:contentDescription="@string/image_viewer"
       android:scaleType="centerInside"/>
   </RelativeLayout>
-</layout>

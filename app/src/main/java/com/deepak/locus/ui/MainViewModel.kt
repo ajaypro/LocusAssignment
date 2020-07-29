@@ -1,40 +1,34 @@
 package com.deepak.locus.ui
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.deepak.locus.data.model.DataItem
 import com.deepak.locus.data.model.DataRepostiory
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 class MainViewModel(private val dataRepostiory: DataRepostiory): ViewModel() {
 
-    private var viewModelJob = SupervisorJob()
+    private var viewModelJob = Job()
 
-    //private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
+    private val viewModelScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     private var _data = MutableLiveData<List<DataItem>>()
-    val data : LiveData<List<DataItem>>
-            get() = _data
+    val data : LiveData<List<DataItem>> = _data
 
 
     init {
-      //getData()
-
-        viewModelScope.launch {
-            _data.value =  dataRepostiory.getData()
-            Log.i("VM",data.value.toString())
-        }
+      getData()
     }
 
-//    private fun getData(){
-//        viewModelScope.launch {
-//           _data.value =  dataRepostiory.getData()
-//            Log.i("VM",data.value.toString())
-//        }
-//    }
+    private fun getData(){
+        viewModelScope.launch {
+           _data.value =  dataRepostiory.getData()
+        }
+    }
 
     override fun onCleared() {
         super.onCleared()
