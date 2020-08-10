@@ -37,13 +37,13 @@
           android:background="@android:color/white" />
 
         <ImageButton
-          android:id="@+id/btn_clear"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="end"
-          android:background="@null"
-          android:contentDescription="@string/clear_image_button"
-          android:src="@drawable/sharp_block_black_36"/>
+            android:id="@+id/btn_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@null"
+            android:contentDescription="@string/clear_image_button"
+            android:src="@drawable/sharp_block_black_36" />
       </FrameLayout>
     </RelativeLayout>
   </androidx.cardview.widget.CardView>

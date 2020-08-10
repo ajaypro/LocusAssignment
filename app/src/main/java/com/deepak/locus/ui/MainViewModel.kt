@@ -11,33 +11,18 @@ import kotlinx.coroutines.*
 
 class MainViewModel(private val dataRepostiory: DataRepostiory): ViewModel() {
 
-    private var viewModelJob = SupervisorJob()
-
-    //private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
     private var _data = MutableLiveData<List<DataItem>>()
     val data : LiveData<List<DataItem>>
             get() = _data
 
-
     init {
-      //getData()
-
-        viewModelScope.launch {
-            _data.value =  dataRepostiory.getData()
-            Log.i("VM",data.value.toString())
-        }
+      getData()
     }
 
-//    private fun getData(){
-//        viewModelScope.launch {
-//           _data.value =  dataRepostiory.getData()
-//            Log.i("VM",data.value.toString())
-//        }
-//    }
-
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
+    private fun getData(){
+        viewModelScope.launch {
+           _data.value =  dataRepostiory.getData()
+        }
     }
 }

@@ -30,12 +30,12 @@ class MainAdapter(private val listItem: List<DataItem>, private val listener: On
             }
             SINGLE_CHOICE -> {
                 ChoiceViewHolder (
-                    layoutInflater.inflate(R.layout.item_choice_option, parent, false), itemClickListener)
+                    layoutInflater.inflate(R.layout.item_choice_option, parent, false))
             }
 
             else -> {
                 CommentViewHolder (
-                    layoutInflater.inflate(R.layout.item_comment, parent, false), itemClickListener)
+                    layoutInflater.inflate(R.layout.item_comment, parent, false))
             }
         }
     }
@@ -56,7 +56,6 @@ class MainAdapter(private val listItem: List<DataItem>, private val listener: On
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         holder.bindView(items[position])
-
     }
 
     companion object {

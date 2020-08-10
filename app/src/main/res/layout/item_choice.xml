@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools">
-<!--  <data>-->
-<!--    <import type="android.view.View"/>-->
-<!--    <variable-->
-<!--      name="item"-->
-<!--      type="com.deepak.locus.data.model.DataItem"/>-->
 
-<!--  </data>-->
-  <androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
+
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="10dp"
     app:cardBackgroundColor="@color/cardColor"
-    app:cardCornerRadius="5dp">
+    app:cardCornerRadius="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -38,4 +32,3 @@
         android:scrollbars="vertical" />
     </RelativeLayout>
   </androidx.cardview.widget.CardView>
-</layout>

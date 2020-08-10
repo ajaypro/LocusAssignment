@@ -7,10 +7,8 @@ data class DataItem(
     var type: String? = null,
     var id: String? = null,
     var title: String? = null,
-    val dataMap: JsonObject? = null){
-
-    val itemCount: Int
-        get() = 1
+    val dataMap: JsonObject? = null,
+var currentValue: String?){
 
     override fun toString(): String {
         val sb = StringBuilder()

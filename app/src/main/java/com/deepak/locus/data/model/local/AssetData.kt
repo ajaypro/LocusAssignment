@@ -13,37 +13,6 @@ class AssetData(private val context: Context) : AssetDataContract {
 
     override fun getDataFromAssets(): List<DataItem> = readJSONFromAsset(context)
 
-//    private fun getOfflineCurrencies(context: Context): List<DataItem> {
-//        var jsonArray: JSONArray? = null
-//        try {
-//            jsonArray = JSONArray(readJSONFromAsset(context))
-//        } catch (e: JSONException) {
-//            e.printStackTrace()
-//        }
-//        val typesData = ArrayList<DataItem>()
-//        val optionsList = ArrayList<String>()
-//
-//
-//
-//        for (i in 0 until jsonArray!!.length()) {
-//
-//            try {
-//                val type = jsonArray.getJSONObject(i).getString("type")
-//                val id = jsonArray.getJSONObject(i).getString("id")
-//                val title = jsonArray.getJSONObject(i).getString("title")
-//                val dataMap = jsonArray.getJSONObject(i).getJSONArray("dataMap")
-//                if(dataMap != null) {
-//                    for (j in 0 until dataMap.length())
-//                        optionsList.add(dataMap[j].toString())
-//                }
-//                typesData.add(type, id, title, dataMap[optionsList])
-//            } catch (e: JSONException) {
-//                e.printStackTrace()
-//            }
-//        }
-//        return typesData
-//    }
-
     private fun readJSONFromAsset(context: Context): List<DataItem> {
         var inputStream: BufferedReader? = null
         return try {

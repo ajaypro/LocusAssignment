@@ -24,7 +24,6 @@
         android:layout_toLeftOf="@+id/comment_swtich_btn"
         android:layout_toStartOf="@+id/comment_swtich_btn"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-          android:text="@{item.title}"
         android:textColor="@android:color/black"
         tools:text="Provide Comment"/>
       <Switch

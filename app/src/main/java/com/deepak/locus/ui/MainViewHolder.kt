@@ -3,15 +3,16 @@ package com.deepak.locus.ui
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import com.deepak.locus.R
 import com.deepak.locus.data.model.DataItem
 import com.squareup.picasso.Picasso
 
-internal class ImageViewHolder(itemView: View, private val clickListener: OnItemClickListener): BaseViewHolder(itemView, clickListener), View.OnClickListener{
+internal class ImageViewHolder(itemView: View, private val clickListener: OnItemClickListener): BaseViewHolder(itemView), View.OnClickListener{
 
-    var imageView: ImageView = itemView.findViewById(R.id.btn_clear)
-    var clearImage: ImageButton = itemView.findViewById(R.id.image_view)
+    var imageView: ImageView = itemView.findViewById(R.id.image_view)
+    var clearImage: ImageButton = itemView.findViewById(R.id.btn_clear)
     lateinit var dataItem: DataItem
 
     init {
@@ -27,19 +28,19 @@ internal class ImageViewHolder(itemView: View, private val clickListener: OnItem
     }
 
     override fun onClick(view: View?) {
-        if(view?.id == R.id.image_view){
+        if (view?.id == R.id.image_view) {
          clickListener.onItemClick(adapterPosition, dataItem)
-        } else if( view?.id == R.id.btn_clear) {
+        } else if ( view?.id == R.id.btn_clear) {
             clickListener.onCrossClick(adapterPosition, dataItem)
         }
     }
 
 }
 
-internal class ChoiceViewHolder(itemView: View, clickListener: OnItemClickListener): BaseViewHolder(itemView, clickListener), RadioGroup.OnCheckedChangeListener{
+internal class ChoiceViewHolder(itemView: View): BaseViewHolder(itemView), RadioGroup.OnCheckedChangeListener{
 
     var radioGroup: RadioGroup = itemView.findViewById(R.id.radioGroup)
-    var radioTitle: TextView = itemView.findViewById(R.id.radio_text)
+    var radioTitle: TextView = itemView.findViewById(R.id.radio_title)
     lateinit var dataItem: DataItem
 
     init {
@@ -62,8 +63,8 @@ internal class ChoiceViewHolder(itemView: View, clickListener: OnItemClickListen
                 RadioButton(itemView.context).apply {
                     text = options[i].asString
                     tag = i
-                    radioGroup.addView(this)
-                    check(i == selected)
+                    radioGroup.addView(this, RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+                    isChecked = (i == selected)
                 }
             }
         }
@@ -73,13 +74,19 @@ internal class ChoiceViewHolder(itemView: View, clickListener: OnItemClickListen
         val radioButton = group?.findViewById<RadioButton>(checkedId) ?: return
         val tag = radioButton.tag as Int
             dataItem.dataMap?.addProperty("selectedOption", tag)
+        if(checkedId != -1){
+            dataItem.currentValue = "  $checkedId"
+        } else {
+            dataItem.currentValue = "-1"
+        }
     }
 }
 
-internal class CommentViewHolder(itemView: View, clickListener: OnItemClickListener): BaseViewHolder(itemView, clickListener),
+internal class CommentViewHolder(itemView: View): BaseViewHolder(itemView),
     CompoundButton.OnCheckedChangeListener, TextWatcher {
 
     var commentView: EditText = itemView.findViewById(R.id.edt_comment)
+    var commentTitle: TextView = itemView.findViewById(R.id.comment_title)
     var switchButton: Switch = itemView.findViewById(R.id.comment_swtich_btn)
     private lateinit var dataItem: DataItem
 
@@ -90,6 +97,7 @@ internal class CommentViewHolder(itemView: View, clickListener: OnItemClickListe
 
     override fun bindView(item: DataItem) {
         dataItem = item
+        commentTitle.text = item.title
         if(item.dataMap!!.has("text")){
             commentView.setText(item.dataMap.get("text").asString)
         } else {
@@ -107,7 +115,9 @@ internal class CommentViewHolder(itemView: View, clickListener: OnItemClickListe
         dataItem.dataMap?.addProperty("checked", isChecked)
         if(isChecked){
             commentView.visibility = View.VISIBLE
+            dataItem.currentValue = commentView.text.toString()
         } else {
+            dataItem.currentValue = null
             commentView.visibility = View.GONE
         }
     }
@@ -117,10 +127,8 @@ internal class CommentViewHolder(itemView: View, clickListener: OnItemClickListe
     }
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-        TODO("Not yet implemented")
     }
 
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-        TODO("Not yet implemented")
     }
 }
